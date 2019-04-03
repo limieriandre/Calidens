@@ -33,4 +33,5 @@ public interface PacienteRepo extends JpaRepository<Paciente,Long> {
      List<Paciente> findAllByEtniaLike(String etnia);
 
 
+
 }
