@@ -1,0 +1,140 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/limieri.css" th:href="@{/css/limieri.css}" rel="stylesheet"/>
+<link href="../static/bootstrap/css/bootstrap.css"  th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"
+       id="bootstrap-css">
+<link rel="icon" type="image/png" href="/img/favicon.ico" th:href="@{/img/favicon.ico}">
+
+<head>
+    <style th:inline="text">
+
+        img{
+            width: 100px;
+            margin-top: 10px;
+        }
+
+        button {
+            display: inline-block;
+            height: auto;
+            padding: 0;
+            margin: 0;
+            vertical-align: top;
+            width: auto;
+            background-color: transparent;
+        }
+
+        .container {
+            width: 60%;
+            margin-top: 2%;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{'/home'}">C a l i d e n s<s></s></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cadastros
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{'/escolas/view'}">Escolas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/pacientes/view'}">Pacientes</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/consultas/view'}">Consultas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/usuarios/view'}">Usuários</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Relatórios e Gráficos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{'/relatorios'}">Relatórios</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/graficos'}">Gráficos</a>
+                </div>
+            </li>
+            <li>
+                <a class="nav-link" th:href="@{'/sobre'}">Sobre</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li>
+                <a class="nav-link" th:href="@{'/'}">SAIR</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+
+<div class="container">
+    <h3>Gráficos Gerais</h3>
+    <hr>
+    <div class="row" id="row01">
+        <div class="col"><a th:alt-title="TotalxCaries"       th:href="@{'/graph1'}"> <img th:src="@{/img/ico_grafico3.png}"> </a></div>
+        <div class="col"><a th:alt-title="TotalxRestaurações" th:href="@{'/graph4'}"> <img th:src="@{/img/ico_grafico5.png}"> </a></div>
+        <div class="col"><a th:alt-title="HomensVsMulheres"   th:href="@{'/graph2'}"> <img th:src="@{/img/ico_grafico.png}">  </a></div>
+        <div class="col"><a th:alt-title="Grupos_Étnicos"     th:href="@{'/graph3'}"> <img th:src="@{/img/ico_grafico4.png}"> </a></div>
+        <div class="col"><a th:alt-title="Comparativo"        th:href="@{'/graph5'}"> <img th:src="@{/img/ico_grafico2.png}"> </a></div>
+
+
+    </div>
+    <br>
+    <h3>Gráficos Étinicos</h3>
+    <hr>
+    <div class="perfume">
+        <form th:action="@{/graph}">
+            <div align="center">
+                <select th:name="grafico" class="form-control center col-sm-6 col-lg-4 col-xl-4" id="grafico" required>
+                    <option value="" selected disabled hidden>Escolha um grupo étnico</option>
+                    <option th:value="1" >Brancos</option>
+                    <option th:value="2" >Negros</option>
+                    <option th:value="3" >Pardos</option>
+                    <option th:value="4" >Indígenas</option>
+                    <option th:value="5" >Amarelos</option>
+
+                </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Gerar Gráfico</button>
+        </form>
+    </div>
+    <br>
+    <h3>Gráficos Por Escola</h3>
+    <hr>
+    <div class="perfume">
+        <form th:action="@{/graphEscola}">
+            <div align="center">
+                <select th:name="idescola" class="form-control col-sm-12 col-lg-9 col-xl-6" id="escola" required>
+                    <option value="" selected disabled hidden>Escolha uma escola</option>
+                    <option th:name="idescola" th:each="escola : ${escolas}" th:value="${escola.id}" th:text="${escola.nome}"></option>
+
+                </select>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">Gerar Gráfico</button>
+        </form>
+    </div>
+</div>
+
+
+
+<br>
+<script th:src="@{'https://code.jquery.com/jquery-3.3.1.slim.min.js'}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script th:src="@{'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script th:src="@{'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

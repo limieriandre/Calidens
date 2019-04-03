@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/limieri.css" th:href="@{/css/limieri.css}" rel="stylesheet"/>
+<link  th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"
+       id="bootstrap-css">
+<link rel="icon" type="image/png" href="/img/favicon.ico" th:href="@{/img/favicon.ico}">
+<head><title> Lista de Escolas</title>
+
+    <style>
+        td {
+            height: 50px;
+        }
+
+        h2 {
+            font-family: arial, sans-serif;
+        }
+
+        #listDiv {
+            width: 96%;
+            margin: 2%;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{'/home'}">C a l i d e n s<s></s></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cadastros
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{'/escolas/view'}">Escolas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/pacientes/view'}">Pacientes</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/consultas/view'}">Consultas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/usuarios/view'}">Usuários</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Relatórios e Gráficos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{'/relatorios'}">Relatórios</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/graficos'}">Gráficos</a>
+                </div>
+            </li>
+            <li>
+                <a class="nav-link" th:href="@{'/sobre'}">Sobre</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li>
+                <a class="nav-link" th:href="@{'/'}">SAIR</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!--<div id="savediv">-->
+
+<!--<form id="saveForm" action="#" th:action="@{/save}"  method="post">-->
+<!--<h2>Person Registry</h2>-->
+
+<!--<p>First Name <input th:type="text" th:name="firstName" /></p>-->
+<!--<p>Last Name  <input th:type="text" th:name="lastName" /></p>-->
+<!--<p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>-->
+<!--</form>-->
+<!--</div>-->
+
+<div id="listDiv">
+    <h2>Lista de Escolas Cadastradas</h2>
+    <br>
+    <form method="post" th:action="@{/escolas/view/}">
+        <input type="text" name="buscar" class="form-control col-xl-6" placeholder="Buscar escola..." />
+        <input type="submit" class="btn btn-info btn-md mt-2 mb-2" value="Buscar" />
+        <br>
+        <a th:href="@{'/escolas/add'}"> <img class="add" th:src="@{/img/ico_add.png}"> </a>
+
+
+        <table class="table-responsive table-hover">
+            <colgroup>
+                <col title="ID" span="1" style="width: 5%;">
+                <col span="1" style="width: 22%;">
+                <col span="1" style="width: 22%;">
+                <col span="1" style="width: 51%;">
+            </colgroup>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Endereço</th>
+                <th>Ações</th>
+            </tr>
+            <tr th:each="escola : ${escolas}">
+                <td th:type="number" th:text="${escola.id}"></td>
+                <td th:text="${escola.nome}"></td>
+                <td th:text="${escola.endereco}"></td>
+
+                <td>
+
+                    <a th:alt-title="Editar" th:href="@{'/escolas/edit/'  + ${escola.id}}"><img class="icones"
+                                                                                         th:src="@{/img/ico_editar.png}"></a>
+                    <a th:alt-title="Deletar" th:href="@{'/escolas/del/'+ ${escola.id}}"><img class="icones"
+                                                                                          th:src="@{/img/ico_excluir.png}"></a>
+                </td>
+            </tr>
+        </table>
+    </form>
+    <br>
+
+
+
+    <a th:href="@{'/home'}"> <img id="sair" th:src="@{/img/ico_sair2.png}"> </a>
+</div>
+<script th:src="@{'https://code.jquery.com/jquery-3.3.1.slim.min.js'}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script th:src="@{'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script th:src="@{'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/limieri.css" th:href="@{/css/limieri.css}" rel="stylesheet"/>
+<link href="../static/bootstrap/css/bootstrap.css" th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+<link href="../static/bootstrap/js/bootstrap.bundle.js" th:href="@{/bootstrap/js/bootstrap.bundle.js}" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="/img/favicon.ico" th:href="@{/img/favicon.ico}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<style>
+
+    h1 {
+        color: cadetblue;
+    }
+
+    button {
+        display: inline-block;
+        height: auto;
+        padding: 0;
+        margin: 0;
+        vertical-align: top;
+        width: auto;
+        background-color: transparent;
+    }
+
+    #container {
+        text-align: center;
+        margin: 2%;
+    }
+
+    #sair {
+        height: 10%;
+        width: 10%;
+    }
+
+    #invalid {
+        width: 100%;
+    }
+
+    #divMsg {
+        width: 100%;
+    }
+
+    #acessonegado {
+        width: 65%;
+    }
+
+    @media only screen and (max-width: 600px) {
+        #acessonegado {
+            width: 100%;
+        }
+
+        #sair {
+            height: 10%;
+            width: 25%;
+        }
+
+    }
+
+</style>
+<title>Acesso inválido</title>
+<div id="container">
+
+
+    <div id="invalid">
+
+        <div id="divMsg">
+            <img id="acessonegado" th:src="@{/img/ico_acessonegado.png}">
+        </div>
+
+        <br>
+
+        <div id="divSair">
+            <a th:href="@{'/'}"> <img id="sair" th:src="@{/img/ico_sair_sair.png}"> </a>
+        </div>
+    </div>
+</div>
+
+<body>
+
+
+</body>
+
+</html>

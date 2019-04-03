@@ -1,0 +1,108 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/limieri.css" th:href="@{/css/limieri.css}" rel="stylesheet"/>
+<link href="../static/bootstrap/css/bootstrap.css"  th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"
+       id="bootstrap-css">
+<link rel="icon" type="image/png" href="/img/favicon.ico" th:href="@{/img/favicon.ico}">
+<head>
+    <style th:inline="text">
+
+        img{
+            width: 100px;
+            margin-top: 10px;
+        }
+
+        button {
+            display: inline-block;
+            height: auto;
+            padding: 0;
+            margin: 0;
+            vertical-align: top;
+            width: auto;
+            background-color: transparent;
+        }
+
+        .container {
+            width: 60%;
+            margin-top: 2%;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" th:href="@{'/home'}">C a l i d e n s<s></s></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Cadastros
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{'/escolas/view'}">Escolas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/pacientes/view'}">Pacientes</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/consultas/view'}">Consultas</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/usuarios/view'}">Usuários</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Relatórios e Gráficos
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" th:href="@{'/relatorios'}">Relatórios</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" th:href="@{'/graficos'}">Gráficos</a>
+                </div>
+            </li>
+            <li>
+                <a class="nav-link" th:href="@{'/sobre'}">Sobre</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li>
+                <a class="nav-link" th:href="@{'/'}">SAIR</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+
+<!--<div class="container">-->
+    <!--<h3>Gráficos</h3>-->
+    <!--<hr>-->
+    <!--<div class="row" id="row01">-->
+        <!--<div class="col"><a th:href="@{'/graph1'}"> <img th:src="@{/img/ico_grafico3.png}"> </a></div>-->
+        <!--<div class="col"><a th:href="@{'/graph2'}"> <img th:src="@{/img/ico_grafico.png}"> </a></div>-->
+        <!--<div class="col"><a th:href="@{'/graph3'}"> <img th:src="@{/img/ico_grafico4.png}"> </a></div>-->
+        <!--<div class="col"><a th:href="@{'/graph4'}"> <img th:src="@{/img/ico_grafico3.png}"> </a></div>-->
+
+    <!--</div>-->
+<!--</div>-->
+
+<div class="container">
+    <select class="custom-select">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+</div>
+
+<br>
+<script th:src="@{'https://code.jquery.com/jquery-3.3.1.slim.min.js'}" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script th:src="@{'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'}" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script th:src="@{'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js'}" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</body>
+</html>

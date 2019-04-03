@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<link href="../static/css/limieri.css" th:href="@{/css/limieri.css}" rel="stylesheet"/>
+<link href="../static/bootstrap/css/bootstrap.css" th:href="@{/bootstrap/css/bootstrap.css}" rel="stylesheet"/>
+<link href="../static/bootstrap/js/bootstrap.bundle.js" th:href="@{/bootstrap/js/bootstrap.bundle.js}" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="/img/favicon.ico" th:href="@{/img/favicon.ico}">
+<head><title> Calidens </title>
+
+    <style>
+
+        h1 {
+            color: cadetblue;
+        }
+
+        .container-total {
+            margin-top: 2%;
+        }
+
+        .btn-md {
+            align-items: center;
+        }
+
+        #div-center {
+            align-items: center;
+            text-align: center;
+            margin-top: 35%;
+        }
+
+        #lastName {
+            text-align: center;
+
+        }
+
+        #firstName {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<!------ Include the above in your HEAD tag ---------->
+<style>
+
+</style>
+<div class="container-total">
+    <div class="container">
+        <div id="login-row" class="row justify-content-center align-items-center">
+            <div id="login-column" class="col-md-6 col-sm-12">
+                <div class="box">
+                    <div class="shape1"></div>
+                    <div class="shape2"></div>
+                    <div class="shape3"></div>
+                    <div class="shape4"></div>
+                    <div class="shape5"></div>
+                    <div class="shape6"></div>
+                    <div class="shape7"></div>
+                    <div class="float" id="div-center">
+                        <form class="form" action="/doLogin">
+                            <div class="form-group">
+                                <h2>E-mail</h2>
+
+                                <input type="email" name="email" id="firstName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <h2>Password</h2>
+
+                                <input type="password" name="password" id="lastName" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="Entrar">
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
