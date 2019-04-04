@@ -112,21 +112,21 @@
         </form>
     </div>
     <br>
-    <h3>Gráficos Por Escola</h3>
-    <hr>
-    <div class="perfume">
-        <form th:action="@{/graphEscola}">
-            <div align="center">
-                <select th:name="idescola" class="form-control col-sm-12 col-lg-9 col-xl-6" id="escola" required>
-                    <option value="" selected disabled hidden>Escolha uma escola</option>
-                    <option th:name="idescola" th:each="escola : ${escolas}" th:value="${escola.id}" th:text="${escola.nome}"></option>
+    <!--<h3>Gráficos Por Escola</h3>-->
+    <!--<hr>-->
+    <!--<div class="perfume">-->
+        <!--<form th:action="@{/graphEscola}">-->
+            <!--<div align="center">-->
+                <!--<select th:name="idescola" class="form-control col-sm-12 col-lg-9 col-xl-6" id="escola" required>-->
+                    <!--<option value="" selected disabled hidden>Escolha uma escola</option>-->
+                    <!--<option th:name="idescola" th:each="escola : ${escolas}" th:value="${escola.id}" th:text="${escola.nome}"></option>-->
 
-                </select>
-            </div>
-            <br>
-            <button type="submit" class="btn btn-primary">Gerar Gráfico</button>
-        </form>
-    </div>
+                <!--</select>-->
+            <!--</div>-->
+            <!--<br>-->
+            <!--<button type="submit" class="btn btn-primary">Gerar Gráfico</button>-->
+        <!--</form>-->
+    <!--</div>-->
 </div>
 
 

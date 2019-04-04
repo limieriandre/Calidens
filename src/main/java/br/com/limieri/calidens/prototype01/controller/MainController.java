@@ -3,6 +3,7 @@ package br.com.limieri.calidens.prototype01.controller;
 import br.com.limieri.calidens.prototype01.entity.Consulta;
 import br.com.limieri.calidens.prototype01.entity.Usuario;
 import br.com.limieri.calidens.prototype01.repository.ConsultaRepo;
+import br.com.limieri.calidens.prototype01.repository.EscolaRepo;
 import br.com.limieri.calidens.prototype01.repository.PacienteRepo;
 import br.com.limieri.calidens.prototype01.repository.UsuarioRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,12 +24,14 @@ public class MainController {
     final UsuarioRepo usuarioRepo;
     final PacienteRepo pacienterepo;
     final ConsultaRepo consultaRepo;
+    final EscolaRepo escolarepo;
 
     @Autowired
-    public MainController(UsuarioRepo usuarioRepo, PacienteRepo pacienterepo, ConsultaRepo consultaRepo) {
+    public MainController(UsuarioRepo usuarioRepo, PacienteRepo pacienterepo, ConsultaRepo consultaRepo, EscolaRepo escolarepo) {
         this.usuarioRepo = usuarioRepo;
         this.pacienterepo = pacienterepo;
         this.consultaRepo = consultaRepo;
+        this.escolarepo = escolarepo;
     }
 
     @RequestMapping("/")
@@ -120,7 +123,9 @@ public class MainController {
 
         long id = (long) 1;
 
+        mv.addObject("escolas",escolarepo.findAll());
         mv.addObject("pacientes",pacienterepo.findAllByEscola_IdAndNomeContaining(id,"Limieri"));
+
 
         return mv;
     }
