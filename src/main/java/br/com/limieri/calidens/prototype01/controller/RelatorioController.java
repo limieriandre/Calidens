@@ -49,7 +49,7 @@ public class RelatorioController {
 //        return mv;
 //    }
 
-    @RequestMapping("/relatorio1")
+    @RequestMapping("/relatorioConsultas")
     public void imprimirRel1(@RequestParam Map<String, Object> parametros, HttpServletResponse response) throws JRException, SQLException, IOException {
 
         parametros = parametros == null ? parametros = new HashMap<>() : parametros;
@@ -73,7 +73,7 @@ public class RelatorioController {
         JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
     }
 
-    @RequestMapping("/relatorio2")
+    @RequestMapping("/relatorioEscolas")
     public void imprimirRel2(@RequestParam Map<String, Object> parametros, HttpServletResponse response) throws JRException, SQLException, IOException {
 
         parametros = parametros == null ? parametros = new HashMap<>() : parametros;
@@ -97,7 +97,7 @@ public class RelatorioController {
         JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
     }
 
-    @RequestMapping("/relatorio3")
+    @RequestMapping("/relatorioPacientes-Escolas")
     public void imprimirRel3(@RequestParam Map<String, Object> parametros, HttpServletResponse response) throws JRException, SQLException, IOException {
 
         parametros = parametros == null ? parametros = new HashMap<>() : parametros;
@@ -121,7 +121,7 @@ public class RelatorioController {
         JasperExportManager.exportReportToPdfStream(jasperPrint, outStream);
     }
 
-    @RequestMapping("/relatorio4")
+    @RequestMapping("/relatorioPacientes")
     public void imprimirRel4(@RequestParam Map<String, Object> parametros, HttpServletResponse response) throws JRException, SQLException, IOException {
 
         parametros = parametros == null ? parametros = new HashMap<>() : parametros;
