@@ -44,6 +44,12 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-pdf
 	compile group: 'org.xhtmlrenderer', name: 'flying-saucer-pdf', version: '9.0.6'
 
+	repositories {
+		maven {
+			url 'http://jaspersoft.artifactoryonline.com/jaspersoft/third-party-ce-artifacts'
+		}
+	}
+
 	runtimeOnly('org.springframework.boot:spring-boot-devtools')
 	runtimeOnly('mysql:mysql-connector-java')
 	testImplementation('org.springframework.boot:spring-boot-starter-test')
