@@ -32,7 +32,11 @@ dependencies {
 	implementation('org.springframework.boot:spring-boot-starter-thymeleaf')
 	implementation('org.springframework.boot:spring-boot-starter-web')
 	// https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports
-	compile group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.2.0'
+	//compile group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.2.0'
+
+	compile ('net.sf.jasperreports:jasperreports:6.5.0') {
+		exclude group: "org.olap4j", module: "olap4j"
+	}
 
 	// https://mvnrepository.com/artifact/com.lowagie/itext
 	compile group: 'com.lowagie', name: 'itext', version: '2.1.7'
