@@ -92,10 +92,6 @@ public class MainController {
 
         List<Usuario> appUsers = usuarioRepo.findUsuarioByEmailAndPassword(email,password);
 
-        List<Usuario> usuarios = usuarioRepo.findAllByEmail(email);
-
-        Usuario usuario = usuarios.get(0);
-
 
 
         if(!appUsers.isEmpty()) {
